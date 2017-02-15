@@ -8,9 +8,9 @@ React ハンズオン
 
 ### フロントエンドエンジニア
 
-React Native Meetupをお手伝いさせていただいています。
-最近はあんまりReact Nativeやれてない・・・。
-普段はエンプラ系に勤務してますがそろそろ卒業したい・・・。
+React Native Meetupをお手伝いさせていただいています。  
+最近はあんまりReact Nativeやれてない・・・。  
+普段はエンプラ系に勤務してますがそろそろ卒業したい・・・。  
 人前に立つと緊張しますが大目にみてください。
 
 ---
@@ -20,8 +20,6 @@ React Native Meetupをお手伝いさせていただいています。
 ---
 
 ### 必要なツール
-
-**※ Mac前提です**
 
 【必要なものmac】
 + Commnad Line Tools
@@ -45,12 +43,14 @@ $ brew update
 $ brew install node
 ```
 
-**windowsの方**
+**windowsの方**  
 かつてはpath通すとかありましたが今は不要です。
 
+方法１（パッケージ版Nodeでやるタイプ）
 1. [ダウンロードページ](https://nodejs.org/ja/download/)にいって、自身のマシン環境に見合ったInstallerを入手してください(LTS版推奨)
 2. インストーラーにしたがってインストールします
 
+方法２（バージョン管理ツールでやるタイプ）
 [Nodistはこちら](https://github.com/marcelklehr/nodist/releases)
 1. .exeを入手してインストールを進めます。
 2. cmdを立ち上げて　`nodist + 6.9.5`を実行します。
@@ -60,11 +60,18 @@ $ brew install node
 
 ここからは共通
 
+
+macの方はターミナルなど  
+windowsの方はcmdなどを開いて実行してください。
+
+
 ### Reactのインストール
+
 
 ```sh
 $ npm install -g create-react-app
 ```
+
 
 ---
 
@@ -90,7 +97,7 @@ $ npm start
 
 Reactは **Component** というモジュールを使い、複数のComponentを組み合わせて実装します
 
-`src/App.js`
+`src/App.js`をみてみると下記のようになっています。
 
 ```js
 class App extends Component {
@@ -112,7 +119,10 @@ class App extends Component {
 export default App;
 ```
 
-`src/index.js`
+これはコンポーネントと呼ばれ、これらを組み合わせて作っていくことになります。
+
+
+`src/index.js`　では、
 
 ```js
 ReactDOM.render(
@@ -121,15 +131,17 @@ ReactDOM.render(
 );
 ```
 
-`src/App.js`が`src/index.js`の`<App />`の箇所に呼び出されます  
-この`<App />`が **Component** です
+となっており、このコードによって`src/App.js`が`src/index.js`の`<App />`の箇所に呼び出され、`public/index.html`の`id="root"`となっている箇所に出力されます。  
+そして、この`<App />`が **Component** です
 
 ---
 
 ## Props
 
 各コンポーネントにはパラメータを与えることができ、それを **Props** といいます
-新しいコンポーネントを作成します
+新しいコンポーネントを作成します。
+
+**ここからコーディングに入ります**
 
 `src/Text.js`
 
@@ -148,13 +160,14 @@ import React, { Component } from 'react';
 
 export default Text;
 ```
-
-`this.props`で参照でき、javascriptを使う際は、`{}`で囲みます
 `src/App.js`を書き換えます
 
 `src/App.js`
 
 ```js
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
 import Text from './Text';
 
 class App extends Component {
@@ -172,17 +185,70 @@ class App extends Component {
     );
   }
 }
+
+export default App;
 ```
 
-propsを渡す際はダブルクオートで囲むと、文字列型になります
+保存しすればリロードしなくても変更点は反映されています。  
+ここでコードを振りかえると、
+
+`src/App.js`
+
+```js
+・・・
+// Textコンポーネントの読み込み
+import Text from './Text';
+
+・・・
+// Textコンポーネントの使用
+// propsとして”ハンズオン"を渡している
+<div className="App-intro">
+  <Text text="ハンズオン" />
+</div>
+```
+
+そして`src/Text`では、
+
+```js
+・・・
+<span style={{color: "red"}}>
+  {this.props.text}
+</span>
+・・・
+```
+
+このように親から渡されたpropsはthis.propsで参照できます。  
+この場合はtextというpropsを参照したいのでthis.props.textとなります。
+
+#### 余談
+
+styleを使うことでスタイルを簡単に適用することができます。
+
+```js
+<span style={{color: "red"}}>
+```
+
+このようになっています。これはCSSの`color: red`と同じ意味合いになります。  
+また、Reactでは {}　で囲うことによってJavaScriptとして評価されるのでこれはオブジェクトを渡しているということになります。  
+
+
+さらに、クラスを使いたい場合は
+
+```js
+<div className="App-intro">
+```
+
+と`class`ではなく`className`になっている点も注意してください。
 
 ---
 
 ## State
 
 コンポーネントがもつ値にはPropsのほかに **State** があります  
-Propsは一度コンポーネントが作成されると変更されませんが、
-Stateはコンポーネントの中で変更される値を保持するために使います
+Propsは親から渡されるものですが、Stateはコンポーネントの中で変更される値を保持するために使います。
+
+
+下記のようにText.jsを書き換えます。
 
 `src/Text.js`
 
@@ -214,13 +280,57 @@ Stateはコンポーネントの中で変更される値を保持するために
 }
 ```
 
-このようにするとTextコンポーネントの文字が点滅します
+このようにするとTextコンポーネントの文字が点滅します。
+昔懐かしのホームページみたいですね。
 
-Stateの初期値は、`constructor`内で`this.state`に代入することで利用できます  
-設定したStateには`this.state`からアクセスできます
 
-State更新には`this.setState()`を利用します  
-setStateが実行されると、このStateを利用している他のコンポーネントは再レンダリングされます
+Stateの初期値は、`constructor`内で`this.state`に代入することで利用できます。  
+
+```js
+this.state = {
+  showText: true
+};
+```
+
+設定したStateには`this.state`からアクセスできます。
+
+```js
+const text = this.state.showText? this.props.text : '';
+```
+
+State更新には`this.setState()`を利用します。  
+setStateが実行されると、このStateを利用している他のコンポーネントは再レンダリングされます。
+
+```js
+this.setState({
+  showText: !this.state.showText
+});
+```
+
+#### 余談
+
+renderメソッドは画面描写の時に実行されるので、renderメソッドの中で`setState`を使わないでください。  
+使うとどうなるかはご想像にお任せします。。。。
+
+```js
+・・・
+render() {
+  const text = this.state.showText? this.props.text : '';
+  this.setState({
+    showText: !this.state.showText
+  });
+  return (
+    <div>
+      <span style={{color: "red"}}>
+        {text}
+      </span>
+    </div>
+  );
+}
+```
+
+やっちゃった人は一回ブラウザ落とさないとダメかも・・・。コンソールみるとエライことになってます。  
+Reactあるあるですね。renderメソッドに限った話ではなくて後述するComponent Life Cycleによってはやってはいけないメソッドも存在します。
 
 ---
 
@@ -268,6 +378,8 @@ setStateが実行されると、このStateを利用している他のコンポ�
 
 Propsの型が定義されたものと違ったり、足りないPropsがある場合はWarningが表示されます  
 
+**ここはみるだけ**
+
 ```js
 Class Pizza extends Component {
   static propTypes = {
@@ -280,6 +392,8 @@ Class Pizza extends Component {
 
 コンポーネントを作る際にデフォルトのPropsを設定することも可能です
 
+**no-error**
+
 ```js
 class Pizza extends Component{
   static defaultProps = {
@@ -289,6 +403,21 @@ class Pizza extends Component{
   };
 }
 ```
+
+**warn**
+
+meatがnumberではなく、stringになっているのでアウト！
+
+```js
+class Pizza extends Component{
+  static defaultProps = {
+    cheeze: 'マシマシ',
+    meat : 'マシマシ',
+    onion {redOnion, Onion},
+  };
+}
+```
+
 
 ---
 
