@@ -418,40 +418,61 @@ class Pizza extends Component{
 }
 ```
 
+肉マシマシはダメみたいですね。
+
 
 ---
 
 ## bind
 
-class内でメソッドを定義する場合、`this`がバインドされません  
-メソッド内で`this`を利用したい場合は`bind`を利用してください
+**ここからまた書きます**  
+
+新たにButtonコンポーネント作るので`src/Button.js`を作成して下記コードを書いてください。
 
 ```js
- class Text extends Component {
-   constructor(props) {
-     super(props);
+import React, { Component } from 'react';
 
-     this.state = {
-       count: 0
-     }
-   }
+class Button extends Component {
+  constructor(props) {
+    super(props);
 
-   addCount() {
-     this.setState({
-       count: this.state.count + 1
-     });
-   }
-
-  render() {
-     <button onClick={this.addCount}>
-       button
-     </button>
-     ...
+    this.state = {
+      count: 0
+    }
+    this.addCount = this.addCount.bind(this);
   }
+
+  addCount() {
+    this.setState({
+      count: this.state.count + 1
+    });
+  }
+
+ render() {
+   return (
+      <button onClick={this.addCount}>
+        buttonCount{this.state.count}
+      </button>
+   );
+ }
 }
+
+export default Button;
 ```
 
-バインドの方法はいくつかありますが、一般的には以下の2つです
+ここで
+
+```js
+  this.addCount = this.addCount.bind(this);
+```
+
+という謎めいた記述があります。
+
+class内でメソッドを定義する場合、`this`がバインドされません。  
+なので、メソッド内で明示的に`this`を利用したい場合は`bind`を利用してください。
+
+
+バインドの方法はいくつかありますが、一般的には以下の2つです。
 
 ```js
    render() {
