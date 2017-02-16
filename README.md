@@ -15,11 +15,11 @@ React Native Meetupをお手伝いさせていただいています。
 
 ---
 
-# Set up
+# セットアップ
 
 ---
 
-### 必要なツール
+## 必要なツール
 
 【必要なものmac】
 + Commnad Line Tools
@@ -35,15 +35,15 @@ React Native Meetupをお手伝いさせていただいています。
 
 ---
 
-### Node.jsのインストール
+## Node.jsのインストール
 
-**macの方**
+### macの方
 ```sh
 $ brew update
 $ brew install node
 ```
 
-**windowsの方**  
+### windowsの方  
 かつてはpath通すとかありましたが今は不要です。
 
 方法１（パッケージ版Nodeでやるタイプ）
@@ -58,15 +58,14 @@ $ brew install node
 
 ---
 
+## Reactのインストール
+
+
 ここからは共通
 
 
 macの方はターミナルなど  
 windowsの方はcmdなどを開いて実行してください。
-
-
-### Reactのインストール
-
 
 ```sh
 $ npm install -g create-react-app
@@ -75,7 +74,7 @@ $ npm install -g create-react-app
 
 ---
 
-### 雛形の作成
+## 雛形の作成
 
 ```sh
 $ create-react-app myapp
@@ -143,6 +142,8 @@ ReactDOM.render(
 
 **ここからコーディングに入ります**
 
+`src/Text.js`を作成し、下記コードを書きます。  
+
 `src/Text.js`
 
 ```js
@@ -190,6 +191,9 @@ export default App;
 ```
 
 保存しすればリロードしなくても変更点は反映されています。  
+画面にハンズオンと赤字で表示されています。  
+
+
 ここでコードを振りかえると、
 
 `src/App.js`
@@ -207,6 +211,8 @@ import Text from './Text';
 </div>
 ```
 
+となっています。  
+これによってTextコンポーネントが画面に表示されるようになります。
 そして`src/Text`では、
 
 ```js
@@ -216,7 +222,7 @@ import Text from './Text';
 </span>
 ・・・
 ```
-
+となっています。  
 このように親から渡されたpropsはthis.propsで参照できます。  
 この場合はtextというpropsを参照したいのでthis.props.textとなります。
 
@@ -231,6 +237,13 @@ styleを使うことでスタイルを簡単に適用することができます
 このようになっています。これはCSSの`color: red`と同じ意味合いになります。  
 また、Reactでは {}　で囲うことによってJavaScriptとして評価されるのでこれはオブジェクトを渡しているということになります。  
 
+inlineStyleっぽいですが、オブジェクトを渡すという点と、
+
+```js
+<span style={{ backgroundColor: "blue" }}
+```
+
+プロパティ名はキャメルケースに置き換えるという点が異なっています。
 
 さらに、クラスを使いたい場合は
 
@@ -238,13 +251,14 @@ styleを使うことでスタイルを簡単に適用することができます
 <div className="App-intro">
 ```
 
-と`class`ではなく`className`になっている点も注意してください。
+と`class`ではなく`className`になっている点も注意してください。  
+CSSに描くCSSはいつも通りで問題ありません。
 
 ---
 
 ## State
 
-コンポーネントがもつ値にはPropsのほかに **State** があります  
+コンポーネントがもつ値にはPropsのほかに **State** があります。  
 Propsは親から渡されるものですが、Stateはコンポーネントの中で変更される値を保持するために使います。
 
 
@@ -306,6 +320,8 @@ this.setState({
   showText: !this.state.showText
 });
 ```
+
+この場合は、１秒ごとに、this.state.showTextがtrueになったりfalseになり、その度再レンダリングされるという挙動になります。
 
 #### 余談
 
@@ -468,7 +484,7 @@ export default Button;
 
 という謎めいた記述があります。
 
-class内でメソッドを定義する場合、`this`がバインドされません。  
+これはclass内でメソッドを定義する場合、`this`がバインドさないためです。  
 なので、メソッド内で明示的に`this`を利用したい場合は`bind`を利用してください。
 
 
