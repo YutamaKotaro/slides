@@ -7,10 +7,7 @@ class Lines extends Component {
             <div>
               {
                 lineData.map((line, index) => (
-                  <div
-                    key={index}
-                    style={{ color: '#3C3C3C' }}
-                  >
+                  <div key={index}>
                     {line.line_name}
                   </div>
                 ))
