@@ -149,7 +149,7 @@ ReactDOM.render(
 ```js
 import React, { Component } from 'react';
 
- class Text extends Component {
+class Text extends Component {
   render() {
     return (
       <span style={{color: "red"}}>
@@ -190,7 +190,7 @@ class App extends Component {
 export default App;
 ```
 
-保存しすればリロードしなくても変更点は反映されています。  
+保存すればリロードしなくても変更点は反映されています。  
 画面にハンズオンと赤字で表示されています。  
 
 
@@ -235,7 +235,7 @@ styleを使うことでスタイルを簡単に適用することができます
 ```
 
 このようになっています。これはCSSの`color: red`と同じ意味合いになります。  
-また、Reactでは {}　で囲うことによってJavaScriptとして評価されるのでこれはオブジェクトを渡しているということになります。  
+また、Reactでは {} で囲うことによってJavaScriptとして評価されるのでこれはオブジェクトを渡しているということになります。  
 
 inlineStyleっぽいですが、オブジェクトを渡すという点と、
 
@@ -355,7 +355,12 @@ Reactあるあるですね。renderメソッドに限った話ではなくて後
 クラスを指定したい際は、`className="App"`で指定できます  
 スタイルを直接指定したい際は、`<span style={{color: "red"}}>`のように指定できます  
 
-また、`const style = {color: "red"}; <span style={style}>`このようにも指定できます
+また、
+```js
+const style = {color: "red"};
+<span style={style}>
+```
+このようにも指定できます
 この際`style`変数はオブジェクトなので、入れ子にして個別指定も可能です
 
 ---
