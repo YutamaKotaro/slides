@@ -4,7 +4,7 @@ React ハンズオン
 @besutome さんの資料をベースに作っています
 
 # @YutamaKotaro
-![right](./profile.png)
+![right](./prof.png)
 
 ### フロントエンドエンジニア
 
