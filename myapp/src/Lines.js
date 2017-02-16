@@ -4,15 +4,15 @@ import lineData from './line-data';
 class Lines extends Component {
     render() {
         return (
-            <div>
+            <ul style={{ textAlign: "left" }}>
               {
                 lineData.map((line, index) => (
-                  <div key={index}>
+                  <li key={index}>
                     {line.line_name}
-                  </div>
+                  </li>
                 ))
               }
-            </div>
+            </ul>
         );
     }
 }
