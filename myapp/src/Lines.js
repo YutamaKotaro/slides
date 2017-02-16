@@ -6,8 +6,8 @@ class Lines extends Component {
         return (
             <ul style={{ textAlign: "left" }}>
               {
-                lineData.map((line, index) => (
-                  <li key={index}>
+                lineData.map(line => (
+                  <li key={line.line_cd}>
                     {line.line_name}
                   </li>
                 ))
