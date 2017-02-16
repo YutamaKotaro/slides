@@ -517,6 +517,66 @@ export default Button;
 
 ---
 
+
+# もしも時間あったら
+
+リストを表示させます。
+
+駅データ.jpさんから拝借したjsonをarrayにしたものがあるので、これを`src/line-data.js`として保存します。  
+[こちら！](https://github.com/YutamaKotaro/slides/blob/master/myapp/src/line-data.js)
+
+次に、`src/Lines.js`を作成します。  
+
+```js
+import React, { Component } from 'react';
+import lineData from './line-data';
+
+class Lines extends Component {
+    render() {
+        return (
+            <ul style={{ textAlign: "left" }}>
+              {
+                lineData.map(line => (
+                  <li key={line.line_cd}>
+                    {line.line_name}
+                  </li>
+                ))
+              }
+            </ul>
+        );
+    }
+}
+
+export default Lines;
+```
+
+データを読み込んで表示させるためのコンポーネントになります。  
+
+ここで注目すべきは、
+
+```js
+{
+  lineData.map(line => (
+    <li key={line.line_cd}>
+      {line.line_name}
+    </li>
+  ))
+}
+```
+
+ここになります。  
+リストをマップにて出力させています。
+このように{}を使うことで繰り返し出力をおこなうことができます。  
+
+ここについているkeyについてはReactでは繰り返しの場合はkeyが必要になるため、keyを付与する必要があります。  
+keyには一意のものを持たせてください。なのでここではline_cdを使っています。  
+
+
+
+
+
+---
+
 ## Additional
 
 + ES6(arrow function, const/let, class)
