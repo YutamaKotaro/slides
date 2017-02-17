@@ -368,11 +368,12 @@ const style = {color: "red"};
 ## Component Life Cycle
 
 特定の際にしたい処理などを記載するには、以下のメソッドを利用します
+http://qiita.com/kawachi/items/092bfc281f88e3a6e456 の図が参考になります
 
-+ `￼componentWillMount()`
-  + コンポーネントがレンダリングされる前に一度だけ呼ばれます
++ `componentWillMount()`
+  + コンポーネントがマウント(メモリにロード)される前に一度だけ呼ばれます
 + `componentDidMount()`
-  + コンポーネントがレンダリングされた後に一度だけ呼ばれます
+  + コンポーネントがマウント(メモリにロード)された後に一度だけ呼ばれます
 + `componentWillReceiveProps(nextProps)`
   + コンポーネントのPropsが更新される際に呼ばれます  
     最初のマウントの段階では呼ばれません
