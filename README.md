@@ -8,9 +8,9 @@ React ハンズオン
 
 ### フロントエンドエンジニア
 
-React Native Meetupをお手伝いさせていただいています。  
-最近はあんまりReact Nativeやれてない・・・。  
-普段はエンプラ系に勤務してますがそろそろ卒業したい・・・。  
+React Native Meetupをお手伝いさせていただいています。
+最近はあんまりReact Nativeやれてない・・・。
+普段はエンプラ系に勤務してますがそろそろ卒業したい・・・。
 人前に立つと緊張しますが大目にみてください。
 
 ---
@@ -43,7 +43,7 @@ $ brew update
 $ brew install node
 ```
 
-### windowsの方  
+### windowsの方
 かつてはpath通すとかありましたが今は不要です。
 
 方法１（パッケージ版Nodeでやるタイプ）
@@ -64,7 +64,7 @@ $ brew install node
 ここからは共通
 
 
-macの方はターミナルなど  
+macの方はターミナルなど
 windowsの方はcmdなどを開いて実行してください。
 
 ```sh
@@ -84,7 +84,6 @@ $ npm start
 
 `http://localhost:3000/`にサンプルが表示されます
 
-*jsファイルは`react-scripts`パッケージ経由でwebpackを利用して読み込まれています*
 
 ---
 
@@ -92,7 +91,7 @@ $ npm start
 
 ---
 
-## Component
+## Component（ここは説明するだけです）
 
 Reactは **Component** というモジュールを使い、複数のComponentを組み合わせて実装します
 
@@ -130,7 +129,7 @@ ReactDOM.render(
 );
 ```
 
-となっており、このコードによって`src/App.js`が`src/index.js`の`<App />`の箇所に呼び出され、`public/index.html`の`id="root"`となっている箇所に出力されます。  
+となっており、このコードによって`src/App.js`が`src/index.js`の`<App />`の箇所に呼び出され、`public/index.html`の`id="root"`となっている箇所に出力されます。
 そして、この`<App />`が **Component** です
 
 ---
@@ -140,9 +139,8 @@ ReactDOM.render(
 各コンポーネントにはパラメータを与えることができ、それを **Props** といいます
 新しいコンポーネントを作成します。
 
-**ここからコーディングに入ります**
 
-`src/Text.js`を作成し、下記コードを書きます。  
+`src/Text.js`を作成し、下記コードを書きます。
 
 `src/Text.js`
 
@@ -190,8 +188,8 @@ class App extends Component {
 export default App;
 ```
 
-保存すればリロードしなくても変更点は反映されています。  
-画面にハンズオンと赤字で表示されています。  
+保存すればリロードしなくても変更点は反映されています。
+画面にハンズオンと赤字で表示されています。
 
 
 ここでコードを振りかえると、
@@ -211,7 +209,7 @@ import Text from './Text';
 </div>
 ```
 
-となっています。  
+となっています。
 これによってTextコンポーネントが画面に表示されるようになります。
 そして`src/Text`では、
 
@@ -222,8 +220,8 @@ import Text from './Text';
 </span>
 ・・・
 ```
-となっています。  
-このように親から渡されたpropsはthis.propsで参照できます。  
+となっています。
+このように親から渡されたpropsはthis.propsで参照できます。
 この場合はtextというpropsを参照したいのでthis.props.textとなります。
 
 #### 余談
@@ -234,8 +232,8 @@ styleを使うことでスタイルを簡単に適用することができます
 <span style={{color: "red"}}>
 ```
 
-このようになっています。これはCSSの`color: red`と同じ意味合いになります。  
-また、Reactでは {} で囲うことによってJavaScriptとして評価されるのでこれはオブジェクトを渡しているということになります。  
+このようになっています。これはCSSの`color: red`と同じ意味合いになります。
+また、Reactでは {} で囲うことによってJavaScriptとして評価されるのでこれはオブジェクトを渡しているということになります。
 
 inlineStyleっぽいですが、オブジェクトを渡すという点と、
 
@@ -251,14 +249,14 @@ inlineStyleっぽいですが、オブジェクトを渡すという点と、
 <div className="App-intro">
 ```
 
-と`class`ではなく`className`になっている点も注意してください。  
+と`class`ではなく`className`になっている点も注意してください。
 CSSに描くCSSはいつも通りで問題ありません。
 
 ---
 
 ## State
 
-コンポーネントがもつ値にはPropsのほかに **State** があります。  
+コンポーネントがもつ値にはPropsのほかに **State** があります。
 Propsは親から渡されるものですが、Stateはコンポーネントの中で変更される値を保持するために使います。
 
 
@@ -298,7 +296,7 @@ Propsは親から渡されるものですが、Stateはコンポーネントの�
 昔懐かしのホームページみたいですね。
 
 
-Stateの初期値は、`constructor`内で`this.state`に代入することで利用できます。  
+Stateの初期値は、`constructor`内で`this.state`に代入することで利用できます。
 
 ```js
 this.state = {
@@ -312,7 +310,7 @@ this.state = {
 const text = this.state.showText? this.props.text : '';
 ```
 
-State更新には`this.setState()`を利用します。  
+State更新には`this.setState()`を利用します。
 setStateが実行されると、このStateを利用している他のコンポーネントは再レンダリングされます。
 
 ```js
@@ -325,8 +323,7 @@ this.setState({
 
 #### 余談
 
-renderメソッドは画面描写の時に実行されるので、renderメソッドの中で`setState`を使わないでください。  
-使うとどうなるかはご想像にお任せします。。。。
+renderメソッドは画面描写の時に実行されるので、renderメソッドの中で`setState`を使わないでください。
 
 ```js
 ・・・
@@ -345,15 +342,26 @@ render() {
 }
 ```
 
-やっちゃった人は一回ブラウザ落とさないとダメかも・・・。コンソールみるとエライことになってます。  
-Reactあるあるですね。renderメソッドに限った話ではなくて後述するComponent Life Cycleによってはやってはいけないメソッドも存在します。
+やっちゃった人は一回ブラウザ落とさないとダメかも・・・。コンソールみるとエライことになってます。
+Reactあるあるですね。
+
+renderメソッドの中でsetStateを使うと、
+
+```
+render -> setState -> render -> setState -> render ->　・・・・
+```
+
+と無限ループに陥ってしまいます。　　
+> 後述するcomponentWillUpdate（コンポーネントが更新される時に実行される）などsetStateと関係のあるメソッドでも毎回setStateされるようなコーディングをすると、無限ループに入ってしまいます。
+
+
 
 ---
 
 ## Style
 
-クラスを指定したい際は、`className="App"`で指定できます  
-スタイルを直接指定したい際は、`<span style={{color: "red"}}>`のように指定できます  
+クラスを指定したい際は、`className="App"`で指定できます
+スタイルを直接指定したい際は、`<span style={{color: "red"}}>`のように指定できます
 
 また、
 ```js
@@ -375,32 +383,30 @@ http://qiita.com/kawachi/items/092bfc281f88e3a6e456 の図が参考になりま�
 + `componentDidMount()`
   + コンポーネントがマウント(メモリにロード)された後に一度だけ呼ばれます
 + `componentWillReceiveProps(nextProps)`
-  + コンポーネントのPropsが更新される際に呼ばれます  
+  + コンポーネントのPropsが更新される際に呼ばれます
     最初のマウントの段階では呼ばれません
 + `shouldComponentUpdate(nextProps,nextState)`
-  + PropsやStateが更新された際に呼ばれます  
-    通常、PropsやStateが更新されると自動で再レンダリングしますが、  
-    再レンダリングさせたくない際（パフォーマンの問題など）はこのメソッドで`false`を返します  
+  + PropsやStateが更新された際に呼ばれます
+    通常、PropsやStateが更新されると自動で再レンダリングしますが、
+    再レンダリングさせたくない際（パフォーマンの問題など）はこのメソッドで`false`を返します
     レンダリングしたい際は`true`を返します
 + `componentWillUpdate(nextProps,nextState)`
-  + PropsやStateが更新され、レンダリングされる前に呼ばれます  
+  + PropsやStateが更新され、レンダリングされる前に呼ばれます
     最初のレンダリング時には呼ばれません
 + `componentDidUpdate(prevProps,prevState)`
-  + PropsやStateが更新され、レンダリングした後に呼ばれます  
+  + PropsやStateが更新され、レンダリングした後に呼ばれます
     最初のレンダリング時には呼ばれません
 + `componentWillUnmount()`
   + コンポーネントが表示されなくなり、レンダリングされなくなる前に呼ばれます
 
 ---
 
-## PropTypes
+## PropTypes(ここは説明するだけです)
 
-コンポーネントにどういったPropsを渡したかを定義するのが  **PropTypes** です  
+コンポーネントにどういったPropsを渡したかを定義するのが  **PropTypes** です
 必須ではありませんが、開発時には記載すべきです
 
-Propsの型が定義されたものと違ったり、足りないPropsがある場合はWarningが表示されます  
-
-**ここはみるだけ**
+Propsの型が定義されたものと違ったり、足りないPropsがある場合はWarningが表示されます
 
 ```js
 Class Pizza extends Component {
@@ -447,8 +453,6 @@ class Pizza extends Component{
 
 ## bind
 
-**ここからまた書きます**  
-
 新たにButtonコンポーネント作るので`src/Button.js`を作成して下記コードを書いてください。
 
 ```js
@@ -490,7 +494,7 @@ export default Button;
 
 という謎めいた記述があります。
 
-これはclass内でメソッドを定義する場合、`this`がバインドさないためです。  
+これはclass内でメソッドを定義する場合、`this`がバインドさないためです。
 なので、メソッド内で明示的に`this`を利用したい場合は`bind`を利用してください。
 
 
@@ -528,10 +532,10 @@ export default Button;
 
 リストを表示させます。
 
-駅データ.jpさんから拝借したjsonをarrayにしたものがあるので、これを`src/line-data.js`として保存します。  
+駅データ.jpさんから拝借したjsonをarrayにしたものがあるので、これを`src/line-data.js`として保存します。
 [こちら！](https://github.com/YutamaKotaro/slides/blob/master/myapp/src/line-data.js)
 
-次に、`src/Lines.js`を作成します。  
+次に、`src/Lines.js`を作成します。
 
 ```js
 import React, { Component } from 'react';
@@ -556,7 +560,7 @@ class Lines extends Component {
 export default Lines;
 ```
 
-データを読み込んで表示させるためのコンポーネントになります。  
+データを読み込んで表示させるためのコンポーネントになります。
 
 ここで注目すべきは、
 
@@ -570,12 +574,12 @@ export default Lines;
 }
 ```
 
-ここになります。  
+ここになります。
 リストをマップにて出力させています。
-このように{}を使うことで繰り返し出力をおこなうことができます。  
+このように{}を使うことで繰り返し出力をおこなうことができます。
 
-ここについているkeyについてはReactでは繰り返しの場合はkeyが必要になるため、keyを付与する必要があります。  
-keyには一意のものを持たせてください。なのでここではline_cdを使っています。  
+ここについているkeyについてはReactでは繰り返しの場合はkeyが必要になるため、keyを付与する必要があります。
+keyには一意のものを持たせてください。なのでここではline_cdを使っています。
 
 
 
