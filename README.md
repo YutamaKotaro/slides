@@ -17,6 +17,8 @@ React Native Meetupをお手伝いさせていただいています。
 
 # セットアップ
 
+早速ですが・・・！！
+
 ---
 
 ## 必要なツール
@@ -88,6 +90,10 @@ $ npm start
 ---
 
 # React概要
+
+ReactとはFaceBook発のライブラリです！
+後述するコンポーネントを作っていくことが目的になります。
+
 
 ---
 
@@ -224,7 +230,7 @@ import Text from './Text';
 このように親から渡されたpropsはthis.propsで参照できます。
 この場合はtextというpropsを参照したいのでthis.props.textとなります。
 
-#### 余談
+### 余談（ReactのStyleとか）
 
 styleを使うことでスタイルを簡単に適用することができます。
 
@@ -321,7 +327,7 @@ this.setState({
 
 この場合は、１秒ごとに、this.state.showTextがtrueになったりfalseになり、その度再レンダリングされるという挙動になります。
 
-#### 余談
+### 余談（Reactの御法度）
 
 renderメソッドは画面描写の時に実行されるので、renderメソッドの中で`setState`を使わないでください。
 
