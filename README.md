@@ -216,9 +216,12 @@ import Text from './Text';
 ```
 
 となっています。
-これによってTextコンポーネントが画面に表示されるようになります。
-そして`src/Text`では、
+これによってTextコンポーネントが画面に表示されるようになります。　　
 
+そして`src/Text.js`では、
+
+
+`src/Text.js`
 ```js
 ・・・
 <span style={{color: "red"}}>
@@ -318,6 +321,7 @@ const text = this.state.showText? this.props.text : '';
 
 State更新には`this.setState()`を利用します。
 setStateが実行されると、このStateを利用している他のコンポーネントは再レンダリングされます。
+setStateの中身はオブジェクトにします。この時オブジェクトのプロパティ名には変更したいstateのプロパティ名、値には変更したい値を使います。
 
 ```js
 this.setState({
@@ -360,22 +364,6 @@ render -> setState -> render -> setState -> render ->　・・・・
 と無限ループに陥ってしまいます。　　
 > 後述するcomponentWillUpdate（コンポーネントが更新される時に実行される）などsetStateと関係のあるメソッドでも毎回setStateされるようなコーディングをすると、無限ループに入ってしまいます。
 
-
-
----
-
-## Style
-
-クラスを指定したい際は、`className="App"`で指定できます
-スタイルを直接指定したい際は、`<span style={{color: "red"}}>`のように指定できます
-
-また、
-```js
-const style = {color: "red"};
-<span style={style}>
-```
-このようにも指定できます
-この際`style`変数はオブジェクトなので、入れ子にして個別指定も可能です
 
 ---
 
@@ -426,30 +414,26 @@ Class Pizza extends Component {
 
 コンポーネントを作る際にデフォルトのPropsを設定することも可能です
 
-**no-error**
 
 ```js
 class Pizza extends Component{
   static defaultProps = {
     cheeze: 'チェダーチーズ',
     meat : 10,
-    onion {redOnion, Onion},
+    onion: {redOnion, Onion},
   };
 }
 ```
 
-**warn**
-
+**warnが発生する例**
 meatがnumberではなく、stringになっているのでアウト！
 
 ```js
-class Pizza extends Component{
-  static defaultProps = {
-    cheeze: 'マシマシ',
-    meat : 'マシマシ',
-    onion {redOnion, Onion},
-  };
-}
+<Pizza
+  cheeze="マシマシ"
+  meat="マシマシ"
+  onion={{redOnion, Onion}}
+/>
 ```
 
 肉マシマシはダメみたいですね。
@@ -500,8 +484,8 @@ export default Button;
 
 という謎めいた記述があります。
 
-これはclass内でメソッドを定義する場合、`this`がバインドさないためです。
-なので、メソッド内で明示的に`this`を利用したい場合は`bind`を利用してください。
+これはイベントハンドラで`this`がバインドさないためです。
+なので、イベントハンドラにclass内のメソッドを指定する場合は`bind`を利用してください。
 
 
 バインドの方法はいくつかありますが、一般的には以下の2つです。
@@ -534,7 +518,7 @@ export default Button;
 ---
 
 
-# もしも時間あったら
+# 繰り返し（時間あったら）
 
 リストを表示させます。
 
@@ -582,14 +566,43 @@ export default Lines;
 
 ここになります。
 リストをマップにて出力させています。
-このように{}を使うことで繰り返し出力をおこなうことができます。
+このようにArray.mapを使うことで繰り返し出力をおこなうことができます。
 
 ここについているkeyについてはReactでは繰り返しの場合はkeyが必要になるため、keyを付与する必要があります。
 keyには一意のものを持たせてください。なのでここではline_cdを使っています。
 
+最後に、Linesコンポーネントを読み込んで画面に出力させます。
 
+`src/App.js`
 
+```js
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import Button from './Button';
+import Lines from './Lines'
 
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Welcome to React</h2>
+        </div>
+        <div className="App-intro">
+          <Lines />
+        </div>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+```
+
+以上でリストを表示することができるようになりました！。
 
 ---
 

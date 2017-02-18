@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Text from './Text';
 import Button from './Button';
 import Lines from './Lines'
 
@@ -15,8 +14,6 @@ class App extends Component {
         </div>
         <div className="App-intro">
           <Lines />
-          <Button />
-          <Text text="ハンズオン" />
         </div>
       </div>
     );

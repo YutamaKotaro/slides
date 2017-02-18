@@ -15,7 +15,7 @@ class Text extends Component {
   }
 
  render() {
-   const text = this.state.showText? this.props.text : '';
+   const text = this.state.showText? this.props.text : '　';
    return (
      <div>
        <span style={{color: "red"}}>
