@@ -17,9 +17,11 @@ React Native Meetupを運営させていただいています。
 
 <br>
 プロのスタイリストがコーディーネートをして服を届ける
+
 ファッションレンタルサービスをやっている会社
-[サービス](https://www.air-closet.com/)
-[コーポレート](https://corp.air-closet.com/)
+
+- [サービス](https://www.air-closet.com/)
+- [コーポレート](https://corp.air-closet.com/)
 
 エンジニアもエンジニアじゃない人も募集中！
 サービスも興味あったらお申し付け下さい！
