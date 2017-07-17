@@ -5,7 +5,6 @@ React ハンズオン
 
 # @YutamaKotaro
 <img src="./prof.png" width=150 />
-![right](./prof.png)
 
 ### フロントエンドエンジニア
 
