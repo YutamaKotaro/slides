@@ -623,6 +623,6 @@ listに追加する時にdone: falseを追加することを忘れずに・・�
 
 ### サンプル
 
-[普通の](./native/main.js)
-[schooの生放送でライブコーディング頑張ったやつ](https://github.com/react-native-jp/schoo-live-cording)
+- [普通の](./native/main.js)
+- [schooの生放送でライブコーディング頑張ったやつ](https://github.com/react-native-jp/schoo-live-cording)
 
