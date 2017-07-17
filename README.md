@@ -1,7 +1,5 @@
 React ハンズオン
 
----
-@besutome さんの資料をベースに作っています
 
 # @YutamaKotaro
 <img src="./prof.png" width=150 />
