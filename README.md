@@ -4,16 +4,28 @@ React ハンズオン
 @besutome さんの資料をベースに作っています
 
 # @YutamaKotaro
-![right](./prof.png)
+<img src="./prof.png" width=150 />
 
 ### フロントエンドエンジニア
 
-React Native Meetupをお手伝いさせていただいています。
-最近はあんまりReact Nativeやれてない・・・。
-普段はエンプラ系に勤務してますが・・・。
-人前に立つと緊張しますが大目にみてください。
+React Native Meetupを運営させていただいています。
 
+## 会社
 
+<img src="./company.png" width=150 />
+株式会社エアークローゼット
+
+<br>
+プロのスタイリストがコーディーネートをして服を届ける
+
+ファッションレンタルサービスをやっている会社
+
+- [サービス](https://www.air-closet.com/)
+- [コーポレート](https://corp.air-closet.com/)
+
+エンジニアもエンジニアじゃない人も募集中！
+サービスも興味あったらお申し付け下さい！
+　　
 
 ---
 
@@ -530,7 +542,7 @@ export default Button;
 なので、イベントハンドラにclass内のメソッドを指定する場合は`bind`を利用してください。
 
 
-バインドの方法はいくつかありますが、一般的には以下の2つです。
+バインドの方法はいくつかありますが、一般的には以下の3つです。
 
 ```js
    render() {
@@ -554,6 +566,12 @@ export default Button;
      </button>
      ...
    }
+```
+
+```js
+  addCount = () => {
+    ...
+  }
 ```
 
 
