@@ -12,7 +12,7 @@ React Native Meetupを運営させていただいています。
 
 ## 会社
 
-![logo](./company.png)
+<img src="./company.png" width=250 />
 株式会社エアークローゼット
 
 <br>
