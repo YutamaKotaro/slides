@@ -16,6 +16,7 @@ try Expo Snackを押して出て来た先ほどのアプリで読み込ませま
 ## エミュレーター使いたい人向け
 メンターはプロなので遠慮なく聞いてください！
 
+
 ```
 npm install -g create-react-native-app
 create-react-native-app Native
@@ -23,6 +24,8 @@ create-react-native-app Native
 cd Native
 npm start
 ```
+npm v5はサポートされていないので要注意・・・！！
+
 
 ```
 brew install watchman
