@@ -20,6 +20,7 @@ cmd + d でメニューが開くのでデバッグもできます<br>
 メンターはプロなので遠慮なく聞いてください！
 
 
+<br>おすすめ！
 ```
 npm install -g create-react-native-app
 create-react-native-app Native
