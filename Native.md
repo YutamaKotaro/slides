@@ -14,6 +14,7 @@ try Expo Snackを押して出て来た先ほどのアプリで読み込ませま
 
 
 ## エミュレーター使いたい人向け
+XCodeを入れておいてください！<br>
 メンターはプロなので遠慮なく聞いてください！
 
 
@@ -22,7 +23,7 @@ npm install -g create-react-native-app
 create-react-native-app Native
 
 cd Native
-npm start
+npm ios
 ```
 npm v5はサポートされていないので要注意・・・！！
 
