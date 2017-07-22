@@ -152,7 +152,9 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 <br>
+
 ### コンポーネントの読み込み
 
 ```js
