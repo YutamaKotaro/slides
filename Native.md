@@ -57,15 +57,17 @@ react-native run-ios
 ## 基本文法
 
 Reactと同じ！
-一点だけ覚えるとしたら、div, spanとかwebのdomを構成するタグは使えません。
+一点だけ覚えるとしたら、div, spanとかwebのdomを構成するタグは使えません。　　
 かわりに、react-nativeからコンポーンネントを読み込んで使います。
 
 ```js
 import { Text, View, StyleSheet } from 'react-native';
 ```
 
+
 もう一点！
 CSSは使えません。代わりにCSS in JS式のスタイリングができます。
+
 
 ```js
 const styles = StyleSheet.create({
@@ -96,15 +98,15 @@ const styles = StyleSheet.create({
 ### View
 この中に文字を入れることはできません。
 基本的に入れ物になります。
-
+<br>
 ### Text
 文字を入れるためのコンポーネントになります。
-
+<br>
 ### StyleSheet
-スタイルシートを扱うためのものです。
+スタイルシートを扱うためのものです。<br>
 詳しくはこちら[【React-Native】StyleSheetについて](http://qiita.com/YutamaKotaro/items/d0cd253c998f9b28dd55)
 (いいねほしい・・・)
-
+<br>
 ## 文法解説（おさらい）
 こちらのコードを元に基本を解説して行きます。
 
@@ -146,7 +148,7 @@ const styles = StyleSheet.create({
   },
 });
 ```
-
+<br>
 ### コンポーネントの読み込み
 
 ```js
@@ -156,7 +158,7 @@ import {
   View
 } from 'react-native';
 ```
-
+<br>
 ## styleの定義
 styleSheet.createを使います。
 基本はCSSと同じ。flexについては後述します。
@@ -180,7 +182,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-
+<br>
 ### コンポーネントの定義
 基本はReactと同じ。
 CSS in JSと同じスタイルの適用方法。
@@ -200,7 +202,7 @@ export default class App extends Component {
   }
 }
 ```
-
+<br>
 ##　flex
 若干のくせのあるスタイリング方法です。
 描きコードがわかりやすいと思うのでお試しください。
@@ -286,7 +288,7 @@ const styles = StyleSheet.create({
 
 justifyContent, alignItems はCSSのflexレイアウトと同じです。
 
-
+<br>
 ## TextInput
 続いてはTextInputを扱います。
 ここからは普通の説明に加えてアプリケーションっぽいものを作って行きます。
@@ -347,7 +349,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-
+<br>
 ### TextInputの使い方
 ```js
     <TextInput
@@ -361,7 +363,7 @@ onChangeTextというイベントハンドラをつけます。
 すると入力した文字を受け取れますので、こちらを使ってstateを更新して行きます。
 underlineColorAndroidはAndroid対策でついてます(勝手にラインが付いてしまうため)。
 
-
+<br>
 ### TouchableOpacity & FlatList
 さっきのやつを拡張します。
 
@@ -474,7 +476,7 @@ const styles = StyleSheet.create({
   }
 });
 ```
-
+<br>
 ### ボタンの実装
 
 ボタンを実装するためには今回はTouchableOpacityを使います。
@@ -491,7 +493,7 @@ TouchableHightLightやButtonなどを使うこともできます。
 
 イベントハンドラはonPressで実装します。
 TouchableOpacityは押下した時に透過度が変わりふわっとした印象を与えることができます。
-
+<br>
 ## listの作成
 
 今回はFlatViewを使うことで実装します。
@@ -552,14 +554,14 @@ const List = props => (
 
 このようにSFCで実装することも可能です。
 classFunctionでは実装不可です。
-
+<br>
 ## 課題
 
 todoアプリに内容を変えてみましょう。
 仕様としてはタップしたら追加したアイテムが完了状態になればOKです！
 
 ![handson.gif](./handson.gif)
-
+<br>
 ### hint
 
 みたい人だけ・・！！
@@ -573,7 +575,7 @@ todoアプリに内容を変えてみましょう。
 <br>
 
 
-
+<br>
 #### 打ち消し線のやり方
 
 ```js
@@ -589,7 +591,7 @@ const styles = StyleSheet.create({
 ```
 
 TextコンポーネントにtextDecorationLine: 'line-through'を与えることで打ち消し線を実現できます。
-
+<br>
 #### 押されたやつだけdoneを変更するロジック
 
 ```js
@@ -622,7 +624,7 @@ listに追加する時にdone: falseを追加することを忘れずに・・�
 
 
 
-
+<br>
 
 ### サンプル
 
