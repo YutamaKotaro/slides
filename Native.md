@@ -194,7 +194,9 @@ const styles = StyleSheet.create({
 
 <br>
 
+
 ### コンポーネントの定義
+
 基本はReactと同じ。
 CSS in JSと同じスタイルの適用方法。
 Textの中に文字を入れる。Viewの中に入れない。
