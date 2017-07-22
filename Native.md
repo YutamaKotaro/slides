@@ -218,7 +218,8 @@ export default class App extends Component {
 
 <br>
 
-##　flex
+## flex
+
 若干のくせのあるスタイリング方法です。
 描きコードがわかりやすいと思うのでお試しください。
 
