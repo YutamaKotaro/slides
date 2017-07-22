@@ -2,7 +2,7 @@
 
 React Nativeの基本を理解することを目的とします！
 
-## クイックインストール
+## クイックインストール(色々と問題見つけたので補足)
 スマートフォンでアプリをインストールしてください
 
 [Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www)
@@ -11,14 +11,6 @@ React Nativeの基本を理解することを目的とします！
 手取り早くやるためにこっちを使います。
 [expo](https://expo.io/)
 try Expo Snackを押して出て来た先ほどのアプリで読み込ませます。
-
-
-## エミュレーター使いたい人向け
-XCodeを入れておいてください！<br>
-cmd + d でメニューが開くのでデバッグもできます<br>
-実機の人の場合は端末を振るとメニューが出ます！<br>
-メンターはプロなので遠慮なく聞いてください！
-
 
 <br>おすすめ！
 ```
@@ -31,6 +23,13 @@ npm ios
 npm v5はサポートされていないので要注意・・・！！
 
 
+## エミュレーター使いたい人向け（こっちでいきます！）
+XCodeを入れておいてください！<br>
+cmd + d でメニューが開くのでデバッグもできます<br>
+実機の人の場合は端末を振るとメニューが出ます！<br>
+メンターはプロなので遠慮なく聞いてください！
+
+
 ```
 brew install watchman
 npm install -g react-native-cli
@@ -41,6 +40,7 @@ cd Native
 react-native run-ios
 ```
 
+[turorial-シミュレーターあり](https://facebook.github.io/react-native/docs/tutorial.html)
 
 ## 概要
 
@@ -96,6 +96,11 @@ const styles = StyleSheet.create({
 ```js
 <View style={styles.container}>
 ```
+
+# 注意事項
+これ以降、importのところにあるAppRegistry、末尾にあるAppRegistry.registerComponentは省略します。  
+また、クラスの名前がみなさんで違っているかもしれませんのでご注意ください。  
+
 
 ## 基本コンポーネント
 
