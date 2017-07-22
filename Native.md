@@ -169,7 +169,7 @@ import {
 ```
 <br>
 
-## styleの定義
+### styleの定義
 styleSheet.createを使います。
 基本はCSSと同じ。flexについては後述します。
 
