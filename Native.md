@@ -287,6 +287,7 @@ const styles = StyleSheet.create({
   },
 ...
 ```
+
 とすると横方向に2:5:1の比率になります。
 詳しくは[こちら](http://qiita.com/YutamaKotaro/items/b6e37c0314a258debaf3)
 
