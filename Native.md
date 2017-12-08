@@ -830,8 +830,7 @@ export default class Sub extends Component {
 ```
 
 以上でルーティングができるようになったと思います。
-
-
+![](./nazo.gif)
 ```:js
 import Main from './Main';
 import Sub from './Sub';
