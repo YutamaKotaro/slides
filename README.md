@@ -24,6 +24,11 @@ React Native Meetupを運営させていただいています。
 エンジニアもエンジニアじゃない人も募集中！
 サービスも興味あったらお申し付け下さい！
 　　
+本も書きました！
+各社におけるReact Nativeの実例集
+
+https://rnjapan.booth.pm/items/665275
+
 
 ---
 
@@ -131,7 +136,7 @@ class Test extends React.Component {
 XMLに近いタグをjsの中に書いていくのが特徴です。
 
 これによって、画面に表示させるものを直感的に書いていくことができます。
-ちょっと特殊にみえますが、**必ずタグは閉じる**という大原則さえ守れだけです。
+ちょっと特殊にみえますが、**必ずタグは閉じる**という大原則さえ守るだけです。
 
 
 [jsx](http://facebook.github.io/jsx/)
@@ -575,7 +580,7 @@ export default Button;
 
 App.jsに追加します。
 
-```
+```;js
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
