@@ -656,6 +656,214 @@ listに追加する時にdone: falseを追加することを忘れずに・・�
 
 
 
+## ちょっとおまけ(早くできた方向け)
+画面遷移について。
+react-navigationを入れます。
+ルーティングライブラリは何を使うのかについてかなり戦国時代なので、とりあえず公式推しなので紹介しました。
+
+```
+yarn add react-native
+```
+
+App.jsをMain.jsにリネームしてあたらにApp.jsを作成します。
+
+```:js
+import Main from './Main';
+import Sub from './Sub';
+import { StackNavigator } from "react-navigation";
+
+const routes = StackNavigator({
+  Main: {
+    screen: Main,
+    navigationOptions: {
+      title: 'Main',
+    },
+  },
+  Sub: {
+    screen: Sub,
+    navigationOptions: {
+      title: 'Sub',
+    },
+  }
+})
+
+export default routes;
+```
+
+Main.js
+```:js
+import React, { Component } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  FlatList,
+} from 'react-native';
+
+export default class Main extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      text: '',
+      list: [],
+    }
+  }
+
+  _onChangeText = (text) => {
+    this.setState({ text });
+  }
+
+  _goToNextPage = () => {
+    this.props.navigation.navigate("Sub");
+  };
+
+  _onPress = () => {
+    const {
+      list,
+      text,
+    } = this.state;
+    const _list = list.concat();
+    _list.push({ key:text });
+
+    this.setState({
+      text: '',
+      list: _list,
+    });
+  }
+
+  render() {
+    const {
+      list,
+      text,
+    } = this.state;
+
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={this._goToNextPage}
+        >
+          <Text style={styles.buttonText}>sub</Text>
+        </TouchableOpacity>
+        <View style={styles.inputArea}>
+          <TextInput
+            style={styles.input}
+            onChangeText={this._onChangeText}
+            underlineColorAndroid="transparent"
+            value={text}
+          />
+          <TouchableOpacity
+            style={styles.button}
+            onPress={this._onPress}
+          >
+            <Text style={styles.buttonText} >Add</Text>
+          </TouchableOpacity>
+        </View>
+        <FlatList
+          data={list}
+          renderItem={({item}) => <Text style={styles.itemText}>{item.key}</Text>}
+          style={styles.list}
+        />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputArea: {
+    flexDirection: 'row',
+    marginTop: 64,
+  },
+  input: {
+    height: 30,
+    width: 200,
+    borderBottomWidth: 1,
+    borderBottomColor: '#008080',
+    marginRight: 20,
+  },
+  button: {
+    width: 80,
+    height: 40,
+    backgroundColor: '#006060',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 20,
+  },
+  list: {
+    width: 300,
+  },
+  itemText: {
+    fontSize: 22,
+    margin: 10,
+  }
+});
+```
+
+Sub.js
+```:js
+import React, { Component } from 'react';
+import {
+  View,
+  Text,
+} from 'react-native';
+
+export default class Sub extends Component {
+  render () {
+    return (
+      <View>
+        <Text>subPage</Text>
+      </View>
+    );
+  }
+}
+```
+
+以上でルーティングができるようになったと思います。
+
+
+```:js
+import Main from './Main';
+import Sub from './Sub';
+import { StackNavigator } from "react-navigation";
+
+const routes = StackNavigator({
+  Main: {
+    screen: Main,
+    navigationOptions: {
+      title: 'Main',
+    },
+  },
+  Sub: {
+    screen: Sub,
+    navigationOptions: {
+      title: 'Sub',
+    },
+  }
+})
+
+export default routes;
+```
+
+ここでは、StackNavigator（画面遷移するやつ）を定義していて、この時のオブジェクトのプロパティ名が画面名になります。
+これに向けて `this.props.navigation.navigate("Sub");` とすることで実際にSubの画面に遷移することができます。
+
+実践ではかなり複雑になってくるのでこのナビゲーションで苦戦する場面は多いです。
+実際に扱えるAPIは非常に多いので、
+
+[https://reactnavigation.org/](https://reactnavigation.org/)
+
+こちらを参考に試してみてください。
 <br>
 
 ### サンプル
