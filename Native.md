@@ -18,7 +18,7 @@ npm install -g create-react-native-app
 create-react-native-app Native
 
 cd Native
-npm ios
+npm run ios
 ```
 npm v5はサポートされていないので要注意・・・！！
 
