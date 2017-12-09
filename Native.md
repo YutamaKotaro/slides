@@ -867,8 +867,3 @@ export default routes;
 こちらを参考に試してみてください。
 <br>
 
-### サンプル
-
-- [普通の](./native/main.js)
-- [schooの生放送でライブコーディング頑張ったやつ](https://github.com/react-native-jp/schoo-live-cording)
-
