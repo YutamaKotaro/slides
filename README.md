@@ -23,8 +23,10 @@ React Native Meetupを運営させていただいています。
 
 エンジニアもエンジニアじゃない人も募集中！
 サービスも興味あったらお申し付け下さい！
-　　
-本も書きました！
+
+
+  
+本も書きました！  
 各社におけるReact Nativeの実例集
 
 https://rnjapan.booth.pm/items/665275
