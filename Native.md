@@ -667,7 +667,7 @@ yarn add react-native
 
 App.jsをMain.jsにリネームしてあたらにApp.jsを作成します。
 
-```:js
+```js
 import Main from './Main';
 import Sub from './Sub';
 import { StackNavigator } from "react-navigation";
@@ -691,7 +691,7 @@ export default routes;
 ```
 
 Main.js
-```:js
+```js
 import React, { Component } from 'react';
 import {
   StyleSheet,
@@ -811,7 +811,7 @@ const styles = StyleSheet.create({
 ```
 
 Sub.js
-```:js
+```js
 import React, { Component } from 'react';
 import {
   View,
@@ -833,7 +833,7 @@ export default class Sub extends Component {
 
 ![](./nazo.gif)
 
-```:js
+```js
 import Main from './Main';
 import Sub from './Sub';
 import { StackNavigator } from "react-navigation";
