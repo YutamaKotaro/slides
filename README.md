@@ -508,16 +508,11 @@ meatがnumberではなく、stringになっているのでアウト！
 import React, { Component } from 'react';
 
 class Button extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    count: 0,
+  };
 
-    this.state = {
-      count: 0
-    }
-    this.addCount = this.addCount.bind(this);
-  }
-
-  addCount() {
+  addCount = () => {
     this.setState({
       count: this.state.count + 1
     });
@@ -535,54 +530,9 @@ class Button extends Component {
 export default Button;
 ```
 
-ここで
-
-```js
-  this.addCount = this.addCount.bind(this);
-```
-
-という謎めいた記述があります。
-
-これはイベントハンドラで`this`がバインドされないためです。
-なので、イベントハンドラにclass内のメソッドを指定する場合は`bind`を利用してください。
-
-
-バインドの方法はいくつかありますが、一般的には以下の3つです。
-
-```js
-   render() {
-     <button onClick={this.addCount.bind(this)}>
-       button
-     </button>
-     ...
-   }
-```
-
-```js
-   constructor(props) {
-     super(props);
-
-     this.addCount = this.addCount.bind(this);
-   }
-
-   render() {
-     <button onClick={this.addCount}>
-       button
-     </button>
-     ...
-   }
-```
-
-```js
-  addCount = () => {
-    ...
-  }
-```
-
-
 App.jsに追加します。
 
-```;js
+```js
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
